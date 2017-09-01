@@ -68,6 +68,15 @@
     - install
     - install:app-requirements
 
+- name: Copy ec2 key
+  copy:
+    content: '{{ JENKINS_EC2_PRIVATE_KEY }}'
+    dest: '{{ build_jenkins_config_path }}/ec2/id_rsa'
+  no_log: yes
+  tags:
+    - install
+    - install:app-requirements
+
 - name: Start Jenkins Service
   systemd:
     name: jenkins
