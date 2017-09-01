@@ -1,0 +1,18 @@
+---
+dependencies:
+  - common
+  - edxapp_common
+  - browsers
+  - role: jenkins_common
+    jenkins_version: '{{ test_jenkins_version }}'
+    jenkins_war_source: '{{ test_jenkins_war_source }}'
+    jenkins_debian_pkgs: '{{ test_jenkins_debian_pkgs }}'
+    jenkins_home: '{{ test_jenkins_home }}'
+    jenkins_config_path: '{{ test_jenkins_config_path }}'
+    jenkins_configuration_scripts: '{{ test_jenkins_configuration_scripts }}'
+    jenkins_plugins: '{{ test_jenkins_plugins }}'
+    jenkins_server_name: '{{ test_jenkins_server_name }}'
+
+  - role: docker-tools
+    docker_users:
+        - '{{ jenkins_user }}'

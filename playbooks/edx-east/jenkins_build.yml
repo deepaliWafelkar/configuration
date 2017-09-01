@@ -12,5 +12,4 @@
   gather_facts: True
   roles:
     - aws
-    - role: jenkins_build
-      build_jenkins_server_name: build.testeng.edx.org
+    - jenkins_build

@@ -15,7 +15,7 @@
 - name: Copy j2 files
   template:
     src: '{{ role_path }}/templates/{{ item }}.yml.j2'
-    dest: '{{ build_jenkins_config_path }}/{{ item }}.yml'
+    dest: '{{ test_jenkins_config_path }}/{{ item }}.yml'
   with_items:
     - credentials
     - security
@@ -24,7 +24,7 @@
     - install:app-requirements
 
 - name: Copy config files
-  template: src={{ item }} dest='{{ build_jenkins_config_path }}/'
+  template: src={{ item }} dest='{{ test_jenkins_config_path }}/'
   with_fileglob:
     - '{{ role_path }}/files/*'
   tags:
@@ -32,7 +32,7 @@
     - install:app-requirements
 
 - name: Copy ec2 config files
-  template: src={{ item }} dest='{{ build_jenkins_config_path }}/ec2/'
+  template: src={{ item }} dest='{{ test_jenkins_config_path }}/ec2/'
   with_fileglob:
     - '{{ role_path }}/files/ec2/*'
   tags:
@@ -40,7 +40,7 @@
     - install:app-requirements
 
 - name: Copy xml config files
-  template: src={{ item }} dest='{{ build_jenkins_config_path }}/xml/'
+  template: src={{ item }} dest='{{ test_jenkins_config_path }}/xml/'
   with_fileglob:
     - '{{ role_path }}/files/xml/*'
   tags:
@@ -52,8 +52,8 @@
   args:
     chdir: '{{ jenkins_git_home }}/jenkins-configuration'
   environment:
-    PLUGIN_OUTPUT_DIR: '{{ build_jenkins_home }}/plugins'
-    PLUGIN_CONFIG: '{{ build_jenkins_config_path }}/plugins.yml'
+    PLUGIN_OUTPUT_DIR: '{{ test_jenkins_home }}/plugins'
+    PLUGIN_CONFIG: '{{ test_jenkins_config_path }}/plugins.yml'
   tags:
     - install
     - install:app-requirements
@@ -61,7 +61,7 @@
 - name: Copy credentials into files
   copy:
     content: "{{ item.content }}"
-    dest: '{{ build_jenkins_config_path }}/credentials/{{ item.name }}'
+    dest: '{{ test_jenkins_config_path }}/credentials/{{ item.name }}'
   with_items: '{{ JENKINS_SECRET_FILES_LIST }}'
   no_log: yes
   tags:

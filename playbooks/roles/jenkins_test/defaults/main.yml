@@ -1,8 +1,8 @@
-build_jenkins_version: jenkins_1.651.3
-build_jenkins_war_source: https://s3.amazonaws.com/edx-testeng-tools/jenkins
-build_jenkins_server_name: build.testeng.edx.org
+test_jenkins_version: jenkins_1.651.3
+test_jenkins_war_source: https://s3.amazonaws.com/edx-testeng-tools/jenkins
+test_jenkins_server_name: test-jenkins.testeng.edx.org
 
-build_jenkins_debian_pkgs:
+test_jenkins_debian_pkgs:
   - git
   - curl
   - nginx
@@ -10,10 +10,10 @@ build_jenkins_debian_pkgs:
   - daemon
   - psmisc
 
-build_jenkins_home: /var/lib/jenkins
-build_jenkins_config_path: /init-configs
+test_jenkins_home: /var/lib/jenkins
+test_jenkins_config_path: /init-configs
 
-build_jenkins_configuration_scripts:
+test_jenkins_configuration_scripts:
   - 1addJarsToClasspath.groovy
   - 2checkInstalledPlugins.groovy
   - 3mainConfiguration.groovy
@@ -21,10 +21,8 @@ build_jenkins_configuration_scripts:
   - 4configureEc2Plugin.groovy
   - 4configureGHOAuth.groovy
   - 4configureGHPRB.groovy
-  - 4configureGit.groovy
   - 4configureHipChat.groovy
   - 4configureJobConfigHistory.groovy
-  - 4configureMailerPlugin.groovy
   - 5addSeedJob.groovy
   - 5createLoggers.groovy
   - 6importCredentials.groovy
@@ -60,10 +58,10 @@ JENKINS_SECRET_FILES_LIST: []
 
 # SECURITY DEFAULT SECRETS
 
-BUILD_JENKINS_SECURITY_CLIENT_ID: ''
-BUILD_JENKINS_SECURITY_CLIENT_SECRET: ''
-BUILD_JENKINS_SECURITY_EDX_USERS_LIST: []
-BUILD_JENKINS_SECURITY_ADMIN_LIST: []
-BUILD_JENKINS_SECURITY_BOT_LIST: []
-BUILD_JENKINS_SECURITY_CUSTOM_LIST_1: []
-BUILD_JENKINS_SECURITY_CUSTOM_LIST_2: []
+TEST_JENKINS_SECURITY_CLIENT_ID: ''
+TEST_JENKINS_SECURITY_CLIENT_SECRET: ''
+TEST_JENKINS_SECURITY_EDX_USERS_LIST: []
+TEST_JENKINS_SECURITY_ADMIN_LIST: []
+TEST_JENKINS_SECURITY_BOT_LIST: []
+TEST_JENKINS_SECURITY_CUSTOM_LIST_1: []
+TEST_JENKINS_SECURITY_CUSTOM_LIST_2: []
