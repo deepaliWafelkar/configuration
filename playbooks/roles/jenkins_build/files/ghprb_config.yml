@@ -1,7 +1,7 @@
 ---
 SERVER_API_URL: 'https://api.github.com'
-ACCESS_TOKEN: ''
-ADMIN_LIST: ''
+ACCESS_TOKEN: '{{ JENKINS_GHPRB_TOKEN }}'
+ADMIN_LIST: '{{ JENKINS_GHPRB_ADMIN_LIST }}'
 REQUEST_TESTING_PHRASE: ''
 WHITE_LIST_PHRASE: '.*[Aa]dd\W+to\W+whitelist.*'
 OK_PHRASE: '.*ok\W+to\W+test.*'
