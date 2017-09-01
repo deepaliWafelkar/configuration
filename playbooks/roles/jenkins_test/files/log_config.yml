@@ -28,3 +28,4 @@
 - LOG_RECORDER: 'SQS'
   LOGGERS:
     - name: 'com.base2services.jenkins'
+      log_level: 'CONFIG'
