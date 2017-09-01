@@ -106,8 +106,3 @@
   tags:
     - install
     - install:vhosts
-
-- name: start nginx
-  service:
-    name: nginx
-    state: started
